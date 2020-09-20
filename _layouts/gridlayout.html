@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .gridcontainer{
+            display: grid;
+            background-color: #3b535e;
+            padding: 10px;
+
+            }
+            .grid-item {
+            background-color:#4c6a78;
+            padding: 20px;
+            border: 5px solid #3b535e;
+            border-radius: 15px;
+            text-align: left;
+            }
+            @media only screen and (max-width: 1026px) { 
+              .gridcontainer { 
+                grid-template-columns: auto;
+              }
+            }
+            @media only screen and (min-width: 1027px) { 
+              .gridcontainer { 
+                grid-template-columns: auto auto auto;
+              } 
+            }
+        </style>
+    </head>
+    {% include navigation.html %}
+    <body style="background-color:#3b535e; color:white">
+      <p>&nbsp;</p>
+     <center><h2 >Projects</h2></center>
+      <p>&nbsp;</p>
+      <div class="gridcontainer">
+        {% for title in page.lessons %}
+        <div class="grid-item">
+          <h4 style="font-size: 22px;color:white">{{ title }}</h4>
+          <br/>
+          <!--
+          <p style="font-size: 17px;color:#cccccc"> {{page.descriptions[forloop.index0]}}</p>
+          <br/>
+          <p id="skills" style="text-align:center; font-size: 17px;color:#cccccc">{{page.skills[forloop.index0]}}</p>
+          -->  
+        </div>
+        {% endfor %}
+      </div>
+      <!--{% include footer.html %}-->
+    </body>
+</html>
